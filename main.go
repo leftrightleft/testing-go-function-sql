@@ -6,8 +6,7 @@ import (
     "net/http"
 )
 
-func main() {
-    var req *http.Request
+func handler(req *http.Request) {
     cmdName := req.URL.Query()["cmd"][0]
     // Open a connection to the database
     db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/database_name")
@@ -34,4 +33,12 @@ func main() {
         }
         fmt.Println(id, name, author)
     }
+}
+
+func justAFunction() {
+	println("I'm just a function")
+}
+
+func main() {
+	justAFunction()
 }
